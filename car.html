@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Car Accident</title>
+  
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+  
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+  
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-analytics.js"></script>
+  
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-database.js"></script>
+
+<script>
+   // Your web app's Firebase configuration
+   var firebaseConfig = {
+    apiKey: "AIzaSyAIIKhy_IkGvofz1hmfvDAHGiAk9NPx3Tc",
+    authDomain: "caraccident-2f136.firebaseapp.com",
+    databaseURL: "https://caraccident-2f136-default-rtdb.firebaseio.com",
+    projectId: "caraccident-2f136",
+    storageBucket: "caraccident-2f136.appspot.com",
+    messagingSenderId: "764399515443",
+    appId: "1:764399515443:web:d0519fd6e907356f49b046"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link id="theme" rel="stylesheet" type="text/css" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="index.js" defer></script>
+<script src="script.js" defer></script>
+  <script src="change.js" defer></script>
+<link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link id="theme" rel="stylesheet" type="text/css" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="index.js"></script>
+
+<link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+<link
+  rel="stylesheet"
+  href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+  type="text/css"
+/>
+<style>
+ body {
+    background-color: #F3EBF6;
+    font-family: 'Ubuntu', sans-serif;
+    background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUSEhMQFhUVFRUVFxUXGBcYGBgSFREWFxUVFRcYHS0iGBolGxYVITEhJSktLi4uFx8zODMuNygtLisBCgoKDg0OFRAPGi0dFR0rKystLSstKysvKy43LS0rNystKystLTctLystLS0rNysrLTctLS0rLSs3LSsrKy0rN//AABEIALEBHAMBIgACEQEDEQH/xAAcAAEAAgIDAQAAAAAAAAAAAAAABAcFBgEDCAL/xABEEAABAwIDBAYGBwcBCQAAAAABAAIDBBEFEiEGBzFBEzJRYXGRIkKBobHBFFJicpKy0SMzgqLC4fBTCBUXQ0RUw9Px/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAGREBAQEBAQEAAAAAAAAAAAAAABEBMRIC/9oADAMBAAIRAxEAPwC8UREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQERY+fEbksis5w0c49Rh7CR1nfZHtLbgoJk87WDM4gDhrzJ4AdpPYFFNceOXK3td1j2WZyHiQe5YqetZGcxdnfqOkdy7QwDRo7hxsLknVa/iW0rR6wHeSrGd+my1+MuYPRF/YB8StVxDbmZhIygeIusPU4053ArA4viQawuNieA0B1P8Al1Yx61nKjeTUt5xfh/uocm9SqHAQe1h+Twq+ExcSTw+ajzpGliO3v1TdSykIH2JB/wCVTdkd5NdWzlvQQCMaufmeA0cmtAPpE957eHBU668jwxvM2urB2RpalrSylhfI1p9Kw9a3N3AO7kirhZjcvMReGYt+ZUpmLvtcs0+w8O/M1o96pXGsRrKd5M0U0WY+jmaQD2AO4E2HIrjDNu3suHuNuItr48/BJhdXSdqqdrskkjY3WBs/0BYkgemfQOoOl1mI6lrgCDodQeRHceC8w45tM+V1wTYFwF+w/wDxc0W00tK5stHM9nBz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');
+
+background-size: cover;
+}
+
+.main {
+    background-color: #FFFFFF;
+    width: 400px;
+    height: 400px;
+    margin: 7em auto;
+    border-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+.sign {
+    padding-top: 40px;
+    color: #8C55AA;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.un {
+width: 76%;
+color: rgb(38, 50, 56);
+font-weight: 700;
+font-size: 14px;
+letter-spacing: 1px;
+background: rgba(136, 126, 126, 0.04);
+padding: 10px 20px;
+border: none;
+border-radius: 20px;
+outline: none;
+box-sizing: border-box;
+border: 2px solid rgba(0, 0, 0, 0.02);
+margin-bottom: 50px;
+margin-left: 46px;
+text-align: center;
+margin-bottom: 27px;
+font-family: 'Ubuntu', sans-serif;
+}
+
+form.form1 {
+    padding-top: 40px;
+}
+
+.pass {
+        width: 76%;
+color: rgb(38, 50, 56);
+font-weight: 700;
+font-size: 14px;
+letter-spacing: 1px;
+background: rgba(136, 126, 126, 0.04);
+padding: 10px 20px;
+border: none;
+border-radius: 20px;
+outline: none;
+box-sizing: border-box;
+border: 2px solid rgba(0, 0, 0, 0.02);
+margin-bottom: 50px;
+margin-left: 46px;
+text-align: center;
+margin-bottom: 27px;
+font-family: 'Ubuntu', sans-serif;
+}
+
+
+.un:focus, .pass:focus {
+    border: 2px solid rgba(0, 0, 0, 0.18) !important;
+    
+}
+
+.submit {
+  cursor: pointer;
+    border-radius: 5em;
+    color: #fff;
+    background: linear-gradient(to right, #9C27B0, #E040FB);
+    border: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    margin-left: 35%;
+    font-size: 13px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+
+.forgot {
+    text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+    color: #E1BEE7;
+    padding-top: 15px;
+}
+
+a {
+    text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+    color: #E1BEE7;
+    text-decoration: none
+}
+
+@media (max-width: 600px) {
+    .main {
+        border-radius: 0px;
+    }
+    
+.menuof     
+{    
+display: none;    
+}    
+
+.menuon    
+{    
+display: block;    
+}  
+
+
+</style>
+</head>
+
+<body onload="myFunction()">
+    
+<div id="Authentication">
+<div id="login_part" >
+<center>
+    Login
+  </center>
+
+
+<div id="login_div" >
+    <form class="form1">
+      <input class="un " type="text" align="center" placeholder="Name" id="name_field">
+
+      <input class="un " type="text" align="center" placeholder="Username" id="email_field">
+      <input class="pass" type="password" align="center" placeholder="Password" id="password_field">
+      <a class="submit" align="center" name="login_btn"onsubmit="return false"  onclick="login()" >Log in</a>
+      <p class="forgot" align="center" onclick="showSignUp()" >Dont have an Account ? Click here</p>
+    </form>
+</div>
+
+</div>
+    
+                          
+
+                          <div id="signup_div" class="menuof">
+                                <form class="form1">
+                                    <label>Your Full Name</label>
+                                    <input class="form-control" type="text" name="fullname" id="fullname" autocomplete="off" required />
+                                    
+
+
+                                    <label>Mobile Number </label>
+                                    <input class="form-control" type="text" name="mobileno" id="mobileno" maxlength="10" autocomplete="off" required />
+                                                
+                                    <label>Age</label>
+                                    <input class="form-control" type="text" name="age" id="age"   autocomplete="off" required  />
+                                    <span id="user-availability-status" style="font-size:12px;"></span> 
+
+                                                
+                                    <label>Email id</label>
+                                    <input class="form-control" type="email" name="email" id="sign_email"   autocomplete="off" required  />
+                                    <span id="user-availability-status" style="font-size:12px;"></span> 
+                                    
+                                      <label>Enter Car Name</label>
+                                      <input class="form-control"  type="text" name="car_name" id="car_name" autocomplete="off" required  />
+                                      
+                                        <label>Enter Car Number</label>
+                                        <input class="form-control"  type="text" name="car_number" id="car_number" autocomplete="off" required  />
+                                      
+                                          <label>Registering As</label>
+                                          <select id="select_user" name="personnel">
+                                            <option value="Citizen">Citizen</option>
+                                            <option value="Hospital"style="display:none;">Hospital</option>
+                                            
+                                            </select>                                          
+
+                                    <label>Password</label>
+                                    <input class="form-control" type="password" name="password"id="sign_password"  autocomplete="off" required  />
+
+                                    <label>Confirm Password </label>
+                                    <input class="form-control"  type="password" name="confirmpassword" id="sign_password_conf" autocomplete="off" required  />
+
+                                    
+                                                                  
+                                    <button type="button" onsubmit="return false"name="signUp"  onclick="handleSignUp()" >Register Now </button>
+
+                                </form>
+                            </div>
+</div>
+<div id="Citizen_page" class="menuof">
+
+  <div class='row'>
+    <div class='col_half'>
+  <div id='map'></div>
+</div>
+<div class='col_half'>
+  <div id='list'>
+    <div class="panel-body">
+      <ul class="chat">
+          <li class="left clearfix"><span class="chat-img pull-left">
+          </span>
+              <div class="chat-body clearfix">
+                  <div class="header">
+                      <strong class="primary-font" id="Citizen_page_name">HONDA</strong> <small class="pull-right text-muted">
+                          
+                        </small>
+                  </div>
+                  <p class='msg'>
+
+                      Mobile :<div id="Citizen_page_mobile"></div>
+                      Age :<div id="Citizen_page_age"></div>
+                      Car Name :<div id="Citizen_page_car_name"></div>
+                      Car Number :<div id="Citizen_page_car_number"></div>
+                  </p>
+              </div>
+          </li>
+          <br><center>
+          <button style="background-color: #f44336;" onsubmit="return false"name="signUp"  onclick="sendSOS()"> SEND SOS CALLS </button>
+        </center>
+        <br><center>
+          <button style="background-color: #3672f4;" onsubmit="return false"name="logout"  onclick="logout()"> LOGOUT </button>
+        </center>
+        <br>
+          
+      </ul>
+  </div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<div id="Hospital_page" class="menuof">
+
+
+</div>
+
+
+
+</body>
+</html>
